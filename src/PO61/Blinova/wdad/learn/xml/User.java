@@ -1,6 +1,8 @@
 package PO61.Blinova.wdad.learn.xml;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String name;
     private String mail;
     private String rights;
