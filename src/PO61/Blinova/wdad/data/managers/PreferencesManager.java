@@ -1,0 +1,136 @@
+package PO61.Blinova.wdad.data.managers;
+
+import org.jdom2.Element;
+import org.jdom2.input.DOMBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
+
+public final class PreferencesManager {
+    private static PreferencesManager instance;
+    Element root;
+    List<Element> nodeListElements;
+    XMLOutputter xmlOut;
+    org.jdom2.Document jdomDocument;
+    String fileName = "";
+    String a = "";
+
+    public PreferencesManager() throws IOException, SAXException, ParserConfigurationException {
+        fileName = "C:\\Users\\blino\\IdeaProjects\\KaterinaBlinova\\src\\PO61\\Blinova\\wdad\\resources\\configuration\\appconfig.xml";
+        jdomDocument = createJDOMusingDOMParser(fileName);
+        xmlOut = new XMLOutputter();
+        root = jdomDocument.getRootElement();
+    }
+    public static PreferencesManager getInstance() throws ParserConfigurationException, SAXException, IOException {
+        if (instance == null) {
+            instance = new PreferencesManager();
+        }
+        return instance;
+    }
+    private static org.jdom2.Document createJDOMusingDOMParser(String fileName)
+            throws ParserConfigurationException, SAXException, IOException {
+        //создаем DOM Document
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder;
+        documentBuilder = dbFactory.newDocumentBuilder();
+        Document doc = documentBuilder.parse(new File(fileName));
+        DOMBuilder domBuilder = new DOMBuilder();
+        return domBuilder.build(doc);
+    }
+    @Deprecated
+    public String getCreateRegistry()
+    {
+        return root.getChild("rmi").getChild("server").getChild("registry").getChildText("createregistry");
+    }
+    @Deprecated
+    public void setCreateRegistry(String createregistry) throws IOException {
+        root.getChild("rmi").getChild("server").getChild("registry").getChild("createregistry").setText(createregistry);
+        xmlOut.setFormat(Format.getPrettyFormat());
+        xmlOut.output(jdomDocument, new FileWriter(fileName));
+    }
+    @Deprecated
+    public String getRegistryAddress()
+    {
+        return root.getChild("rmi").getChild("server").getChild("registry").getChildText("registryaddress");
+    }
+    @Deprecated
+    public void setRegistryAddress(String registryaddress) throws IOException {
+        root.getChild("rmi").getChild("server").getChild("registry").getChild("registryaddress").setText(registryaddress);
+        xmlOut.setFormat(Format.getPrettyFormat());
+        xmlOut.output(jdomDocument, new FileWriter(fileName));
+    }
+    @Deprecated
+    public String getRegistryPort()
+    {
+        return root.getChild("rmi").getChild("server").getChild("registry").getChildText("registryport");
+    }
+    @Deprecated
+    public void setRegistryPort(String registryport) throws IOException {
+        root.getChild("rmi").getChild("server").getChild("registry").getChild("registryport").setText(registryport);
+        xmlOut.setFormat(Format.getPrettyFormat());
+        xmlOut.output(jdomDocument, new FileWriter(fileName));
+    }
+    @Deprecated
+    public String getPolicyPath()
+    {
+        return root.getChild("rmi").getChild("client").getChildText("policypath");
+    }
+    @Deprecated
+    public void setPolicyPath(String policypath) throws IOException {
+        root.getChild("rmi").getChild("client").getChild("policypath").setText(policypath);
+        xmlOut.setFormat(Format.getPrettyFormat());
+        xmlOut.output(jdomDocument, new FileWriter(fileName));
+    }
+    @Deprecated
+    public String getUseCodeBaseOnly()
+    {
+        return root.getChild("rmi").getChild("client").getChildText("usecodebaseonly");
+    }
+    @Deprecated
+    public void setUseCodeBaseOnly(String usecodebaseonly) throws IOException {
+        root.getChild("rmi").getChild("client").getChild("usecodebaseonly").setText(usecodebaseonly);
+        xmlOut.setFormat(Format.getPrettyFormat());
+        xmlOut.output(jdomDocument, new FileWriter(fileName));
+    }
+    @Deprecated
+    public String getClassProvider()
+    {
+        return root.getChild("rmi").getChildText("classprovider");
+    }
+    @Deprecated
+    public void setClassProvider(String classprovider) throws IOException {
+        root.getChild("rmi").getChild("classprovider").setText(classprovider);
+        xmlOut.setFormat(Format.getPrettyFormat());
+        xmlOut.output(jdomDocument, new FileWriter(fileName));
+    }
+    public void setProperty(String key, String value){
+
+    }
+    public String getProperty(String key){
+        return a;
+    }
+    public void setProperties(Properties prop){
+
+    }
+    public Properties getProperties(){
+
+    return null;
+    }
+    public void addBindedObject(String name, String className){
+
+    }
+    public void removeBindedObject(String name){
+
+    }
+
+}
