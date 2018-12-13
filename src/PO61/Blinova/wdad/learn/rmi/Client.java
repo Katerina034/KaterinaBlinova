@@ -1,5 +1,6 @@
 package PO61.Blinova.wdad.learn.rmi;
 
+import PO61.Blinova.wdad.data.managers.DataManager;
 import PO61.Blinova.wdad.data.managers.PreferencesManager;
 import PO61.Blinova.wdad.learn.xml.Note;
 import PO61.Blinova.wdad.learn.xml.User;
@@ -82,7 +83,7 @@ public class Client
 
                 Remote remote = registry.lookup(EXECUTOR_NAME);
 
-                test((XmlDataManager) remote);
+                test((DataManager) remote);
 
             } catch (RemoteException re) {
 
@@ -104,7 +105,7 @@ public class Client
 
 
 
-    public static void test(XmlDataManager xmlDataManager) throws RemoteException {
+    public static void test(DataManager dataManager) throws RemoteException {
 
         User owner = new User();
 
@@ -112,7 +113,7 @@ public class Client
 
         owner.setMail("Mail1");
 
-        Note note = xmlDataManager.getNote(owner, "Title1");
+        Note note = dataManager.getNote(owner, "Title1");
 
         System.out.println("Text: " + note.getText() + '\n'
 

@@ -6,6 +6,15 @@ public class Note implements Serializable {
     private  String title;
     private  String text;
     private User owner;
+    private String cdate;
+
+    public String getCdate() {
+        return cdate;
+    }
+
+    public void setCdate(String cdate) {
+        this.cdate = cdate;
+    }
 
     public String getText() {
         return text;

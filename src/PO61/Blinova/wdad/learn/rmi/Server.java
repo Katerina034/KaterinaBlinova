@@ -16,7 +16,7 @@ public class Server
 
 {
 
-    private static XmlDataManagerImpl xmlDataManager;
+    private static DataManagerImpl xmlDataManager;
 
     static private PreferencesManager preferencesManager;
 
@@ -44,7 +44,7 @@ public class Server
 
         preferencesManager = PreferencesManager.getInstance();
 
-        xmlDataManager = new XmlDataManagerImpl();
+        xmlDataManager = new DataManagerImpl();
 
         policyPath = preferencesManager.getProperty(PreferencesManagerConstsnts.POLICY_PATH);
 
@@ -78,7 +78,7 @@ public class Server
 
         System.out.println("codebaseUrl - " + codebaseUrl);
 
-        xmlDataManager = new XmlDataManagerImpl();
+        xmlDataManager = new DataManagerImpl();
 
         System.setProperty("java.rmi.server.codebase", codebaseUrl);
 

@@ -1,5 +1,6 @@
 package PO61.Blinova.wdad.learn.rmi;
 
+import PO61.Blinova.wdad.data.managers.DataManager;
 import PO61.Blinova.wdad.learn.xml.Note;
 import PO61.Blinova.wdad.learn.xml.User;
 import PO61.Blinova.wdad.learn.xml.XmlTask;
@@ -10,9 +11,9 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public class XmlDataManagerImpl implements XmlDataManager {
+public class DataManagerImpl implements DataManager {
     XmlTask xmlTask;
-    public XmlDataManagerImpl() throws ParserConfigurationException, SAXException, IOException {
+    public DataManagerImpl() throws ParserConfigurationException, SAXException, IOException {
         xmlTask = new XmlTask();
     }
     @Override
