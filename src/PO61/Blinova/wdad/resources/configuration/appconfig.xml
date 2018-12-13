@@ -59,19 +59,53 @@ directory or *jar file, or URL to *.jar file, containing *.class files -->
                 >
 
         ]>
+
 <appconfig>
+
   <rmi>
+
     <server>
+
       <registry>
+
         <createregistry>yes</createregistry>
+
         <registryaddress>localhost</registryaddress>
-        <registryport>25565</registryport>
+
+        <registryport>1099</registryport>
+
       </registry>
+
     </server>
+
     <client>
-      <policypath>/Users\blino\IdeaProjects\KaterinaBlinova\src\PO61\Blinova\wdad\learn\rmi\security.policy</policypath>
-      <usecodebaseonly>yes</usecodebaseonly>
+
+      <policypath>client.policy</policypath>
+
+      <usecodebaseonly>no</usecodebaseonly>
+
     </client>
-    <classprovider></classprovider>
+
+    <classprovider>http://www.yourhost.free.ru/cp/cp.jar</classprovider>
+
   </rmi>
+
+  <datasource>
+
+    <classname>com.mysql.jdbc.Driver</classname>
+
+    <drivertype>mysql</drivertype>
+
+    <hostName>localhost</hostName>
+
+    <port>3306</port>
+
+    <DBName>notes</DBName>
+
+    <user>root</user>
+
+    <pass></pass>
+
+  </datasource>
+
 </appconfig>
