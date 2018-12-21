@@ -8,6 +8,16 @@ public class Note implements Serializable {
     private User owner;
     private String cdate;
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("title - ").append(title).append("\n");
+        stringBuilder.append("text - ").append(text).append("\n");
+        stringBuilder.append("Owner:").append(owner.toString()).append("\n");
+        stringBuilder.append("cdate - ").append(cdate).append("\n");
+        return stringBuilder.toString();
+    }
+
     public String getCdate() {
         return cdate;
     }

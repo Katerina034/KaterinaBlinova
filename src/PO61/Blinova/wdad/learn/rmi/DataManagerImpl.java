@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DataManagerImpl implements DataManager {
@@ -22,9 +23,8 @@ public class DataManagerImpl implements DataManager {
     }
 
     @Override
-    public void updateNote(User owner, String title, StringBuilder newText) throws IOException, RemoteException {
+    public void updateNote(User owner, String title, String newText) throws IOException, RemoteException, ClassNotFoundException, SQLException, ParserConfigurationException, SAXException {
         xmlTask.updateNote(owner, title, newText);
-
     }
 
     @Override

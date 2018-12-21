@@ -7,6 +7,16 @@ public class User implements Serializable {
     private String mail;
     private String rights;
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append('\n');
+        stringBuilder.append("\tname - ").append(name).append('\n');
+        stringBuilder.append("\tmail - ").append(mail).append('\n');
+        stringBuilder.append("\trights - ").append(rights).append('\n');
+        return stringBuilder.toString();
+    }
+
     public String getMail() {
         return mail;
     }

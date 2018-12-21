@@ -14,6 +14,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.sql.SQLException;
 
 public class Client
 
@@ -105,7 +106,7 @@ public class Client
 
 
 
-    public static void test(DataManager dataManager) throws RemoteException {
+    public static void test(DataManager dataManager) throws IOException, ClassNotFoundException, SQLException, ParserConfigurationException, SAXException {
 
         User owner = new User();
 

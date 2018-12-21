@@ -54,10 +54,10 @@ public class XmlTask
         }
         return text;
     }
-    public void updateNote(User owner, String title, StringBuilder newText) throws IOException {
+    public void updateNote(User owner, String title, String newText) throws IOException {
         for (Element noteEl : nodeListElements) {
             if(noteEl.getChildText("title").equals(title) && noteEl.getChild("owner").getAttributeValue("name").equals(owner.getName()) && noteEl.getChild("owner").getAttributeValue("mail").equals(owner.getMail()))
-                noteEl.getChild("text").setText(newText.toString());
+                noteEl.getChild("text").setText(newText);
         }
         xmlOut.setFormat(Format.getPrettyFormat());
         xmlOut.output(jdomDocument, new FileWriter(fileName));

@@ -54,9 +54,9 @@ public class JDBCDataManager implements DataManager
 
             statement = con.prepareStatement("SELECT title, creation_date, text, users.name " +
 
-                    "FROM notes INNER JOIN users ON notes.author_id = users.id " +
+                    "FROM note INNER JOIN users ON note.author_id = users.id " +
 
-                    "WHERE notes.title = ? AND users.name = ?");
+                    "WHERE note.title = ? AND users.name = ?");
 
             statement.setString(1, title);
 
@@ -132,7 +132,7 @@ public class JDBCDataManager implements DataManager
 
 
 
-            statement = con.prepareStatement("UPDATE notes " +
+            statement = con.prepareStatement("UPDATE note " +
 
                     "SET text = ? " +
 
@@ -192,11 +192,11 @@ public class JDBCDataManager implements DataManager
 
 
 
-            statement = con.prepareStatement("UPDATE user_privileges " +
+            statement = con.prepareStatement("UPDATE users_privileges " +
 
                     "SET privilege = ? " +
 
-                    "WHERE notes_id = (SELECT id FROM notes WHERE title = ?) AND " +
+                    "WHERE notes_id = (SELECT id FROM note WHERE title = ?) AND " +
 
                     "users_id = (SELECT id FROM users WHERE name = ?)");
 
@@ -235,8 +235,8 @@ public class JDBCDataManager implements DataManager
     }
 
     @Override
-    public List<Note> getNotes(User owner) throws RemoteException {
-        return null;
-    }
+    public List<Note> getNotes(User owner) throws IOException, ClassNotFoundException, SQLException, ParserConfigurationException, SAXException {
 
+        return  null;
+    }
 }
