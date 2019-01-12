@@ -1,9 +1,30 @@
 package PO61.Blinova.wdad.learn.xml;
 
-public class Note {
+import java.io.Serializable;
+
+public class Note implements Serializable {
     private  String title;
     private  String text;
     private User owner;
+    private String cdate;
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("title - ").append(title).append("\n");
+        stringBuilder.append("text - ").append(text).append("\n");
+        stringBuilder.append("Owner:").append(owner.toString()).append("\n");
+        stringBuilder.append("cdate - ").append(cdate).append("\n");
+        return stringBuilder.toString();
+    }
+
+    public String getCdate() {
+        return cdate;
+    }
+
+    public void setCdate(String cdate) {
+        this.cdate = cdate;
+    }
 
     public String getText() {
         return text;
